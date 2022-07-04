@@ -52,8 +52,8 @@ export default {
             <td>{{ livros.id }}</td>
             <td>{{ livros.nome }}</td>
             <td>
-              <button>Editar</button
-              ><button @click="excluir(livros)">Excluir</button>
+              <button class="editbtn">Editar</button
+              ><button class="excluirbtn" @click="excluir(livros)">Excluir</button>
             </td>
           </tr>
         </tbody>
@@ -66,48 +66,53 @@ export default {
 <style>
 .title {
   text-align: center;
-  margin: 2rem 0;
+  margin: 14% 0 0 0;
 }
 
 .form-input {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 4% 0 0 0;
 }
 
 .form-input input {
   width: 50%;
   padding: 0.5rem;
-  border: 5px solid #98b7e1;
+  border: 2px solid #0c0c0c;
   border-radius: 10px;
 }
 
 .form-input button {
   padding: 0.5rem;
-  border: 5px solid #98b7e1;
+  border: 2px solid #000000;
   border-radius: 10px;
-  color: #454663;
+  color: #000000;
   font-weight: bold;
   margin-left: 1%;
+}
+.form-input button:hover {
+  background-image: linear-gradient(#2b2727, #2b2727);
+  color: #ffffff;
 }
 
 .list-livros {
   display: flex;
   justify-content: center;
+  margin: 2% 0 0 0;
 }
 
 table {
   width: 80%;
   border-collapse: collapse;
   margin: 0 auto;
-  border: 1px solid #9bfae2;
+  border: 1px solid #020202;
   font-size: 1.1rem;
   text-align: center;
 }
 
 table thead {
-  background-color: #454663;
-  color: #9bfae2;
+  background-color: #414144;
+  color: #ffffff;
 }
 
 table thead th {
@@ -115,6 +120,33 @@ table thead th {
 }
 
 table tbody tr:nth-child(odd) {
-  background-color: #9bfae2;
+  background-color: #adadad;
+}
+
+.editbtn {
+  padding: 0.5rem;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 1%;
+}
+.editbtn:hover {
+  background-image: linear-gradient(#2b2727, #2b2727);
+  color: #ffffff;
+}
+
+.excluirbtn {
+  padding: 0.5rem;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 1%;
+}
+
+.excluirbtn:hover {
+  background-image: linear-gradient(#2b2727, #2b2727);
+  color: #ffffff;
 }
 </style>

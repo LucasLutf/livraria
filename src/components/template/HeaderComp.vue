@@ -1,16 +1,17 @@
 <template>
   <header>
+    <router-link to="/">
 <span class="adm">Painel ADM</span>
+    </router-link>
   </header>
 </template>
 
 <style scoped>
 
 header {
-  content: "";
   position: absolute;
   width: 100%;
-  height: 140px;
+  height: 130px;
   left: 0;
   top: 0;
 
@@ -18,8 +19,6 @@ header {
 }
 .adm {
   position: absolute;
-  width: 780px;
-  height: 59px;
   left: 40px;
   top: 35px;
   font-family: "Montserrat";
