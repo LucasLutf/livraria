@@ -3,22 +3,36 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      usuarios: [
-        { id: "4dfadc62-3011-48a9-a384-53cbc062b0b2", nome: "Usuario 1" },
-        { id: "6fe0c8e2-619b-4c46-b92b-e1ca7a3b970c", nome: "Usuario 2" },
-        { id: "9e3a44e1-bceb-4786-a1fd-38c5a76a7745", nome: "Usuario 3" },
-      ],
-      novo_usuario: "",
+      novo_id: "",
+      novo_username: "",
+      novo_email: "",
+      novo_nome: "",
+      nova_senha: "",
+      usuarios: [],
     };
   },
   methods: {
     salvar() {
-      const novo_id = uuidv4();
-      this.usuarios.push({
-        id: novo_id,
-        nome: this.novo_usuario,
-        editoras: this.novo_usuario,
-      });
+      if (this.novo_usuario !== "") {
+        const novo_id = uuidv4();
+        this.usuarios.push({
+          id: novo_id,
+          novo_id: this.novo_id,
+          username: this.novo_username,
+          email: this.novo_email,
+          nome: this.novo_nome,
+          senha: this.nova_senha,
+        });
+        this.novo_id = "";
+        this.novo_username = "";
+        this.novo_email = "";
+        this.novo_nome = "";
+        this.nova_senha = "";
+      }
+    },
+    excluir(usuarios) {
+      const indice = this.usuarios.indexOf(usuarios);
+      this.usuarios.splice(indice, 1);
     },
   },
 };
@@ -30,7 +44,36 @@ export default {
       <h2>Gerenciamento de Usuarios</h2>
     </div>
     <div class="form-input">
-      <input type="text" v-model="novo_usuario" />
+      <input
+        placeholder="Id"
+        type="text"
+        v-model="novo_id"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Username"
+        type="text"
+        v-model="novo_username"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Email"
+        type="text"
+        v-model="novo_email"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Nome"
+        type="text"
+        v-model="novo_nome"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Senha"
+        type="text"
+        v-model="nova_senha"
+        @keydown.enter="salvar"
+      />
       <button @click="salvar">Salvar</button>
     </div>
     <div class="list-livros">
@@ -38,15 +81,26 @@ export default {
         <thead>
           <tr>
             <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
             <th>Nome</th>
-            <th>Ações</th>
+            <th>Senha</th>
+            <th>Ação</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="usuarios in usuarios" :key="usuarios.id">
-            <td>{{ usuarios.id }}</td>
-            <td>{{ usuarios.nome }}</td>
-            <td>???</td>
+          <tr v-for="usuario in usuarios" :key="usuario.id">
+            <td>{{ usuario.novo_id }}</td>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.senha }}</td>
+            <td>
+              <button class="editbtn">Editar</button
+              ><button class="excluirbtn" @click="excluir(usuario)">
+                Excluir
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

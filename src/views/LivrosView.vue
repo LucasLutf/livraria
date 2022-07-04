@@ -3,12 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      livros: [
-        { id: "4dfadc62-3011-48a9-a384-53cbc062b0b2", nome: "Livro 1" },
-        { id: "6fe0c8e2-619b-4c46-b92b-e1ca7a3b970c", nome: "Livro 2" },
-        { id: "9e3a44e1-bceb-4786-a1fd-38c5a76a7745", nome: "Livro 3" },
-      ],
-      novo_livro: "",
+      novo_titulo: "",
+      nova_categoria: "",
+      nova_editora: "",
+      novo_autor: "",
+      livros: [],
     };
   },
   methods: {
@@ -17,8 +16,15 @@ export default {
         const novo_id = uuidv4();
         this.livros.push({
           id: novo_id,
-          nome: this.novo_livro,
+          novo_titulo: this.novo_titulo,
+          categoria: this.nova_categoria,
+          editora: this.nova_editora,
+          autor: this.novo_autor,
         });
+        this.novo_titulo = "";
+        this.nova_categoria = "";
+        this.nova_editora = "";
+        this.novo_autor = "";
       }
     },
     excluir(livros) {
@@ -35,25 +41,54 @@ export default {
       <h2>Gerenciamento de Livros</h2>
     </div>
     <div class="form-input">
-      <input type="text" v-model="novo_livro" @keydown.enter="salvar" />
+      <input
+        placeholder="Titulo"
+        type="text"
+        v-model="novo_titulo"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Categoria"
+        type="text"
+        v-model="nova_categoria"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Editora"
+        type="text"
+        v-model="nova_editora"
+        @keydown.enter="salvar"
+      />
+      <input
+        placeholder="Autor"
+        type="text"
+        v-model="novo_autor"
+        @keydown.enter="salvar"
+      />
       <button @click="salvar">Salvar</button>
     </div>
     <div class="list-livros">
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Ações</th>
+            <th>Titulo</th>
+            <th>Categoria</th>
+            <th>Editora</th>
+            <th>Autor</th>
+            <th>Ação</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="livros in livros" :key="livros.id">
-            <td>{{ livros.id }}</td>
-            <td>{{ livros.nome }}</td>
+          <tr v-for="livro in livros" :key="livro.id">
+            <td>{{ livro.novo_titulo }}</td>
+            <td>{{ livro.categoria }}</td>
+            <td>{{ livro.editora }}</td>
+            <td>{{ livro.autor }}</td>
             <td>
               <button class="editbtn">Editar</button
-              ><button class="excluirbtn" @click="excluir(livros)">Excluir</button>
+              ><button class="excluirbtn" @click="excluir(livro)">
+                Excluir
+              </button>
             </td>
           </tr>
         </tbody>
@@ -76,9 +111,9 @@ export default {
 }
 
 .form-input input {
-  width: 50%;
+  width: 12%;
   padding: 0.5rem;
-  border: 2px solid #0c0c0c;
+  border: 2px solid #000000;
   border-radius: 10px;
 }
 
