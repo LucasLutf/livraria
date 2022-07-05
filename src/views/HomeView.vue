@@ -30,7 +30,7 @@ main {
   margin: 12% 0 0 16%;
   text-align: center;
 
-  background: #d9d9d9;
+  background-image: linear-gradient(90deg, #3f3d3d 0, #626263 35%, #8a8888 100%);
   border-radius: 10px;
 }
 
