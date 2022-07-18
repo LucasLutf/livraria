@@ -1,26 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import InicioView from "../views/InicioView.vue";
+import AutorView from "../views/AutorView.vue";
+import CategoriaView from "../views/CategoriaView.vue";
+import EditoraView from "../views/EditoraView.vue";
 import LivrosView from "../views/LivrosView.vue";
-import EditorasView from "../views/EditorasView.vue";
-import UsuariosView from "../views/UsuariosView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      name: "início",
+      component: InicioView,
     },
     {
-      path: "/editoras",
-      name: "editoras",
-      component: EditorasView,
+      path: "/autor",
+      name: "autor",
+      component: AutorView,
     },
     {
-      path: "/usuarios",
-      name: "usuarios",
-      component: UsuariosView,
+      path: "/categoria",
+      name: "categoria",
+      component: CategoriaView,
+    },
+    {
+      path: "/editora",
+      name: "editora",
+      component: EditoraView,
     },
     {
       path: "/livros",
@@ -31,4 +37,3 @@ const router = createRouter({
 });
 
 export default router;
-

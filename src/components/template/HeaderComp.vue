@@ -1,13 +1,12 @@
 <template>
   <header>
     <router-link to="/">
-<span class="adm">Painel ADM</span>
+      <span class="adm">Painel ADM</span>
     </router-link>
   </header>
 </template>
 
 <style scoped>
-
 header {
   position: absolute;
   width: 100%;
@@ -15,7 +14,12 @@ header {
   left: 0;
   top: 0;
 
-  background-image: linear-gradient(90deg, #222121 0, #49494b 35%, #747474 100%);
+  background-image: linear-gradient(
+    90deg,
+    #222121 0,
+    #49494b 35%,
+    #747474 100%
+  );
 }
 .adm {
   position: absolute;
@@ -29,5 +33,4 @@ header {
   text-align: left;
   color: #ffffff;
 }
-
 </style>

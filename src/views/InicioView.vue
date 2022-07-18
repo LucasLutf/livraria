@@ -10,14 +10,19 @@
       <button>Livro</button>
     </router-link>
   </div>
-  <div class="editora">
-    <router-link to="/editoras">
-      <button>Editora</button>
+  <div class="autores">
+    <router-link to="/autor">
+      <button>Autores</button>
     </router-link>
   </div>
-  <div class="usuario">
-    <router-link to="/usuarios">
-      <button>Usuario</button>
+  <div class="categoria">
+    <router-link to="/categoria">
+      <button>Categorias</button>
+    </router-link>
+  </div>
+  <div class="editora">
+    <router-link to="/editora">
+      <button>Editoras</button>
     </router-link>
   </div>
 </template>
@@ -30,7 +35,12 @@ main {
   margin: 12% 0 0 16%;
   text-align: center;
 
-  background-image: linear-gradient(90deg, #3f3d3d 0, #626263 35%, #8a8888 100%);
+  background-image: linear-gradient(
+    90deg,
+    #3f3d3d 0,
+    #626263 35%,
+    #8a8888 100%
+  );
   border-radius: 10px;
 }
 
@@ -64,9 +74,8 @@ h3 {
 .livro button:hover {
   background-image: linear-gradient(#2b2727, #2b2727);
   color: #ffffff;
-  
 }
-.editora button {
+.autores button {
   position: absolute;
   width: 350px;
   height: 59px;
@@ -77,12 +86,11 @@ h3 {
   cursor: pointer;
   background-color: #ffffff;
 }
-.editora button:hover {
+.autores button:hover {
   background-image: linear-gradient(#2b2727, #2b2727);
   color: #ffffff;
-  
 }
-.usuario button {
+.categoria button {
   position: absolute;
   width: 350px;
   height: 59px;
@@ -93,10 +101,9 @@ h3 {
   cursor: pointer;
   background-color: #ffffff;
 }
-.usuario button:hover {
+.categoria button:hover {
   background-image: linear-gradient(#2b2727, #2b2727);
   color: #ffffff;
-  
 }
 .txtabert button {
   position: absolute;
@@ -110,5 +117,20 @@ h3 {
   background-color: #272424;
   color: #ffffff;
   cursor: pointer;
+}
+.editora button {
+  position: absolute;
+  width: 350px;
+  height: 59px;
+  margin: 34% 0 0 25%;
+  text-align: center;
+  border-radius: 10px;
+  color: #000000;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.editora button:hover {
+  background-image: linear-gradient(#2b2727, #2b2727);
+  color: #ffffff;
 }
 </style>
